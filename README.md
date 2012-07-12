@@ -8,25 +8,25 @@ Test suites
 
 A test suite is a list of several test cases that check a certain area of code.
 To add a test suite to the execution just use the following code:
-`
+<blockquote>
 JSAssert.addTestSuite("MyTestSuite", {
 	testCase1: function() {},
-	testCase2: function() {},
+	testCase2: function() {}
 });
-`
+</blockquote>
 
 If you want to setup some variables (executed when test suite is added to the list not when test is executed):
-`
+<blockquote>
 JSAssert.addTestSuite("MyTestSuite", (function() {
 	// Set-up some variables here
 	
 	// Expose test cases
 	return {
 		testCase1: function() {},
-		testCase2: function() {},
+		testCase2: function() {}
 	};
 }()));
-`
+</blockquote>
 
 Test cases
 ----------
@@ -44,17 +44,17 @@ For now, jsassert framework supports assertions for the following types of data:
 To use an assertion, simply starts with `assertThat(myObject)`.
 
 At this point you can call several methods:
-`
+<blockquote>
 var number = 5;
 assertThat(number).isNotZero();
 assertThat(number).isGreaterThan(0);
 assertThat(number).equals(5);
-`
+</blockquote>
 Or in chained version:
-`
+<blockquote>
 var number = 5;
 assertThat(number).isNotZero().isGreaterThan(0).equals(5);
-`
+</blockquote>
 
 ### Assertions on number
 
