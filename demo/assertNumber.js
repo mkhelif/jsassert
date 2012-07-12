@@ -31,42 +31,42 @@ JSAssert.addTestSuite("Number Assertions", (function() {
 				assertThat(error).property('message').equals(message);
 			}
 		},
-		testGreaterThan: function() {
-			assertThat(1).greaterThan(0);
-			assertThat(1).greaterThan(-1);
-			assertThat(0.2).greaterThan(0.1);
+		testIsGreaterThan: function() {
+			assertThat(1).isGreaterThan(0);
+			assertThat(1).isGreaterThan(-1);
+			assertThat(0.2).isGreaterThan(0.1);
 			try {
-				assertThat(0).greaterThan(1, message);
+				assertThat(0).isGreaterThan(1, message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}
 		},
-		testGreaterOrEqualsTo: function() {
-			assertThat(1).greaterOrEqualsTo(0);
-			assertThat(1).greaterOrEqualsTo(1);
-			assertThat(0.2).greaterOrEqualsTo(0.1);
+		testIsGreaterOrEqualsTo: function() {
+			assertThat(1).isGreaterOrEqualsTo(0);
+			assertThat(1).isGreaterOrEqualsTo(1);
+			assertThat(0.2).isGreaterOrEqualsTo(0.1);
 			try {
-				assertThat(0).greaterOrEqualsTo(1, message);
+				assertThat(0).isGreaterOrEqualsTo(1, message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}
 		},
-		testLowerThan: function() {
-			assertThat(0).lowerThan(1);
-			assertThat(-1).lowerThan(1);
-			assertThat(0.1).lowerThan(0.2);
+		testIsLowerThan: function() {
+			assertThat(0).isLowerThan(1);
+			assertThat(-1).isLowerThan(1);
+			assertThat(0.1).isLowerThan(0.2);
 			try {
-				assertThat(1).lowerThan(0, message);
+				assertThat(1).isLowerThan(0, message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}
 		},
-		testLowerOrEqualsTo: function() {
-			assertThat(0).lowerOrEqualsTo(1);
-			assertThat(1).lowerOrEqualsTo(1);
-			assertThat(0.1).lowerOrEqualsTo(0.2);
+		testIsLowerOrEqualsTo: function() {
+			assertThat(0).isLowerOrEqualsTo(1);
+			assertThat(1).isLowerOrEqualsTo(1);
+			assertThat(0.1).isLowerOrEqualsTo(0.2);
 			try {
-				assertThat(1).lowerOrEqualsTo(0, message);
+				assertThat(1).isLowerOrEqualsTo(0, message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}

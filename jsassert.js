@@ -214,7 +214,7 @@ var numberAssertions = {
 	 * @param value the value to check the number against.
 	 * @param message the optionnal message displayed in case of failure.
 	 */
-	greaterThan: function(value, message) {
+	isGreaterThan: function(value, message) {
 		assertThat(this.object > value).isTrue(message);
 		return this;
 	},
@@ -224,7 +224,7 @@ var numberAssertions = {
 	 * @param value the value to check the number against.
 	 * @param message the optionnal message displayed in case of failure.
 	 */
-	greaterOrEqualsTo: function(value, message) {
+	isGreaterOrEqualsTo: function(value, message) {
 		assertThat(this.object >= value).isTrue(message);
 		return this;
 	},
@@ -234,7 +234,7 @@ var numberAssertions = {
 	 * @param value the value to check the number against.
 	 * @param message the optionnal message displayed in case of failure.
 	 */
-	lowerThan: function(value, message) {
+	isLowerThan: function(value, message) {
 		assertThat(this.object < value).isTrue(message);
 		return this;
 	},
@@ -244,7 +244,7 @@ var numberAssertions = {
 	 * @param value the value to check the number against.
 	 * @param message the optionnal message displayed in case of failure.
 	 */
-	lowerOrEqualsTo: function(value, message) {
+	isLowerOrEqualsTo: function(value, message) {
 		assertThat(this.object <= value).isTrue(message);
 		return this;
 	}
