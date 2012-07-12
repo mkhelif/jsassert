@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Test Cases Report > BoneJS</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script type="text/javascript" src="jquery-1.7.2.js"></script>
+		
+		<!-- JS Test Framework -->
+		<script type="text/javascript" src="../jsassert.js"></script>
+		
+		<!-- Import classes under test -->
+		<!-- Since these tests verify jsassert framework, there is no need to reimport it. -->
+		<!--<script type="text/javascript" src="../jsassert.js"></script>-->
+		
+		<!-- Import test suites -->
+		<script type="text/javascript" src="assertCommon.js"></script>
+		<script type="text/javascript" src="assertBoolean.js"></script>
+		<script type="text/javascript" src="assertNumber.js"></script>
+		<script type="text/javascript" src="assertString.js"></script>
+		<script type="text/javascript" src="assertObject.js"></script>
+		<script type="text/javascript" src="assertArray.js"></script>
+	</head>
+	
+	<body>
+		<div id="content">
+			<h1>JavaScript Test Results</h1>
+		
+			<table>
+				<thead>
+					<tr>
+						<th class="name">Test</th>
+						<th class="result">Result</th>
+						<th class="duration">Duration</th>
+					</tr>
+				</thead>
+				
+				<tbody id="results">
+					<!-- Filled during test executions. -->
+				</tbody>
+			</table>
+		</div>
+		
+		<script type="text/javascript">
+			(function() {
+				var container = $("#results");
+				JSAssert.execute({
+					onSuiteStarted: function(suite) {
+						container.append(
+							'<tr class="testsuite" id="testsuite-' + suite.id + '">' +
+								'<td class="name">' + suite.name + '</td>' +
+								'<td class="result"></td>' +
+								'<td class="duration"></td>' +
+							'</tr>'
+						);
+					},
+					onSuiteEnded: function(result) {
+						$('#testsuite-' + result.id).addClass(result.failed > 0 ? 'failed' : 'passed');
+						$('#testsuite-' + result.id + ' td.result').append(result.passed + ' / ' + (result.passed + result.failed));
+						$('#testsuite-' + result.id + ' td.duration').append(result.duration + ' ms');
+					},
+					onTestStarted: function(test) {
+						container.append(
+							'<tr class="testcase" id="testcase-' + test.id + '">' +
+								'<td class="name">' + test.name + '</td>' +
+								'<td class="result"></td>' +
+								'<td class="duration"></td>' +
+							'</tr>'
+						);
+					},
+					onTestEnded: function(result) {
+						$('#testcase-' + result.id + ' td.duration').append(result.duration + ' ms');
+						if (result.success) {
+							$('#testcase-' + result.id).addClass('passed');
+							$('#testcase-' + result.id + ' td.result').append('OK');
+						} else {
+							$('#testcase-' + result.id).addClass('failed');
+							$('#testcase-' + result.id + ' td.result').append('KO');
+							container.append(
+								'<tr class="testcase-error" id="testcase-' + result.id + '-error">' +
+									'<td colspan="3" class="error">' + result.error.toString() + '</td>' +
+								'</tr>'
+							);
+						}
+					},
+					onFinished: function(summary) {
+						container.append(
+							'<tr class="summary">' +
+								'<td class="name">Total</td>' +
+								'<td class="result">' + (summary.passed / (summary.passed + summary.failed) * 100).toFixed(2) + '%</td>' +
+								'<td class="duration">' + summary.duration + ' ms</td>' +
+							'</tr>'
+						);
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>
