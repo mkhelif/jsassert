@@ -255,14 +255,10 @@ var numberAssertions = {
  */
 var stringAssertions = {
 	/**
-	 * Check the length of the array/string.
-	 * @param expected the expected length of the object.
-	 * @param message the optionnal message displayed in case of failure.
+	 * Retrieve assertions based on string length.
 	 */
-	hasLength: function(expected, message) {
-		assertThat(this.object).isNotNull(message);
-		assertThat(this.object.length == expected).isTrue(message);
-		return this;
+	length: function() {
+		return assertThat(this.object.length);
 	},
 
 	/**
@@ -308,7 +304,7 @@ var stringAssertions = {
 	
 	/**
 	 * Check that the string matches the regular expression.
-	 * @param regexp the regular exception to match.
+	 * @param regexp the regular expression to match.
 	 * @param message the optionnal message displayed in case of failure.
 	 */
 	matches: function(regexp, message) {
