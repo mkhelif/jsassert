@@ -66,24 +66,31 @@ Every assertion methods has an optional `message` parameter which is used when t
 
 ### Assertions on number
 
-* **equals** _(expected)_  check that the number equals the expected value.
-	*expected*: the expected value of the number.
+* **equals** _(expected)_<br>
+    Check that the number equals the expected value.<br>
+        *expected*: the expected value of the number.
 
-* **isZero** _()_ verify that the number equals 0.
+* **isZero** _()_<br>
+    Verify that the number equals 0.
 
-* **isNotZero** _()_ verify that the number does not equal 0.
+* **isNotZero** _()_<br>
+    Verify that the number does not equal 0.
 
-* **isGreaterThan** _(value)_ verify that the number is greater than the value.
-	*value*: the value to compare with the number.
+* **isGreaterThan** _(value)_<br>
+    Verify that the number is greater than the value.<br>
+        *value*: the value to compare with the number.
 
-* **isGreaterOrEqualsTo** _(value)_ verify that the number is greater or equals to the value.
-	*value*: the value to compare with the number.
+* **isGreaterOrEqualsTo** _(value)_<br>
+    Verify that the number is greater or equals to the value.<br>
+        *value*: the value to compare with the number.
 
-* **isLowerThan** _(value)_ verify that the number is lower than the value.
-	*value*: the value to compare with the number.
+* **isLowerThan** _(value)_<br>
+    Verify that the number is lower than the value.<br>
+        *value*: the value to compare with the number.
 
-* **isLowerOrEqualsTo** _(value)_ verify that the number is lower or equals to the value.
-	*value*: the value to compare with the number.
+* **isLowerOrEqualsTo** _(value)_<br>
+    Verify that the number is lower or equals to the value.<br>
+        *value*: the value to compare with the number.
 
 ### Assertions on boolean
 
