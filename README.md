@@ -66,31 +66,67 @@ Every assertion methods has an optional `message` parameter which is used when t
 
 ### Assertions on number
 
--   `equals(expected)`: check that the number equals the expected value.
-    -   *expected*: the expected value of the number.<br/>
-    **Usage**: `assertThat(5).equals(5);`
+```
+equals(expected): check that the number equals the expected value.
 
--   `isZero()`: verify that the number equals 0.<br/>
-    **Usage**: `assertThat(0).isZero();`
+**Parameters**:
+*expected*: the expected value of the number.
 
--   `isNotZero()`: verify that the number does not equal 0.<br/>
-    **Usage**: `assertThat(5).isNotZero();`
+**Usage**:
+`assertThat(5).equals(5);`
+```
 
--   `isGreaterThan(value)`: verify that the number is greater than the value.
-    -   *value*: the value to compare with the number.<br/>
-    **Usage**: `assertThat(5).isGreaterThan(0);`
+`isZero()`: verify that the number equals 0.
 
--   `isGreaterOrEqualsTo(value)`: verify that the number is greater or equals to the value.
-    -   *value*: the value to compare with the number.<br/>
-    **Usage**: `assertThat(5).isGreaterOrEqualsTo(5);`
+**Usage**:
+`assertThat(0).isZero();`
 
--   `isLowerThan(value)`: verify that the number is lower than the value.
-    -   *value*: the value to compare with the number.<br/>
-    **Usage**: `assertThat(5).isLowerThan(10);`
+<br>
 
--   `isLowerOrEqualsTo(value)`: verify that the number is lower or equals to the value.
-    -   *value*: the value to compare with the number.<br/>
-    **Usage**: `assertThat(5).isLowerOrEqualsTo(5);`
+`isNotZero()`: verify that the number does not equal 0.
+
+**Usage**:
+`assertThat(5).isNotZero();`
+
+<br>
+
+`isGreaterThan(value)`: verify that the number is greater than the value.
+
+**Parameters **:
+*value*: the value to compare with the number.
+
+**Usage**:
+`assertThat(5).isGreaterThan(0);`
+
+<br>
+
+`isGreaterOrEqualsTo(value)`: verify that the number is greater or equals to the value.
+
+**Parameters**:
+*value*: the value to compare with the number.
+
+**Usage**:
+`assertThat(5).isGreaterOrEqualsTo(5);`
+
+<br>
+
+`isLowerThan(value)`: verify that the number is lower than the value.
+
+**Parameters**:
+*value*: the value to compare with the number.
+
+**Usage**:
+`assertThat(5).isLowerThan(10);`
+
+<br>
+
+`isLowerOrEqualsTo(value)`: verify that the number is lower or equals to the value.
+
+**Parameters**:
+*value*: the value to compare with the number.
+
+**Usage**:
+`assertThat(5).isLowerOrEqualsTo(5);`
 
 ### Assertions on boolean
 
