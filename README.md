@@ -10,21 +10,26 @@ A test suite is a list of several test cases that check a certain area of code.
 To add a test suite to the execution just use the following code:
 ```
 JSAssert.addTestSuite("MyTestSuite", {
-	testCase1: function() {},
-	testCase2: function() {}
+    testCase1: function() {},
+    testCase2: function() {}
 });
 ```
 
 If you want to setup some variables (executed when test suite is added to the list not when test is executed):
 ```
 JSAssert.addTestSuite("MyTestSuite", (function() {
-	// Set-up some variables here
-        
-	// Expose test cases
-	return {
-			testCase1: function() {},
-		testCase2: function() {}
-	};
+    // Set-up some variables here
+    var object = { name: 'John Doe' };
+
+    // Expose test cases
+    return {
+        testCase1: function() {
+			// Use object here...
+		},
+        testCase2: function() {
+			// ...or here
+		}
+    };
 }()));
 ```
 
@@ -57,9 +62,35 @@ var number = 5;
 assertThat(number).isNotZero().isGreaterThan(0).equals(5);
 ```
 
+Every assertion methods has an optional `message` parameter which is used when the assertion fails.
+
 ### Assertions on number
 
-TODO
+-   `equals(expected)`: check that the number equals the expected value.
+    -   `expected`: the expected value of the number.<br/>
+    **Usage**: `assertThat(5).equals(5);`
+
+-   `isZero()`: verify that the number equals 0.<br/>
+    **Usage**: `assertThat(0).isZero();`
+
+-   `isNotZero()`: verify that the number does not equal 0.<br/>
+    **Usage**: `assertThat(5).isNotZero();`
+
+-   `isGreaterThan(value)`: verify that the number is greater than the value.
+    -   `value`: the value to compare with the number.<br/>
+    **Usage**: `assertThat(5).isGreaterThan(0);`
+
+-   `isGreaterOrEqualsTo(value)`: verify that the number is greater or equals to the value.
+    -   `value`: the value to compare with the number.<br/>
+    **Usage**: `assertThat(5).isGreaterOrEqualsTo(5);`
+
+-   `isLowerThan(value)`: verify that the number is lower than the value.
+    -   `value`: the value to compare with the number.<br/>
+    **Usage**: `assertThat(5).isLowerThan(10);`
+
+-   `isLowerOrEqualsTo(value)`: verify that the number is lower or equals to the value.
+    -   `value`: the value to compare with the number.<br/>
+    **Usage**: `assertThat(5).isLowerOrEqualsTo(5);`
 
 ### Assertions on boolean
 
