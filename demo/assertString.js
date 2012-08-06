@@ -4,11 +4,11 @@
 JSAssert.addTestSuite("String Assertions", (function() {
 	var message = 'expected error message';
 	return {
-		testHasLength: function() {
-			assertThat("").hasLength(0);
-			assertThat("azerty").hasLength(6);
+		testLength: function() {
+			assertThat("").length().isZero();
+			assertThat("azerty").length().equals(6);
 			try {
-				assertThat("azerty").hasLength(0, message);
+				assertThat("azerty").length().isZero(message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}
