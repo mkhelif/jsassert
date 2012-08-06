@@ -127,6 +127,7 @@ var assertThat = assertThat || function(object) {
 		case "number": assertions = numberAssertions; break;
 		case "boolean": assertions = booleanAssertions; break;
 		case "string": assertions = stringAssertions; break;
+		case "undefined": assertions = undefinedAssertions; break;
 		case "object":
 			if (object instanceof Array) {
 				assertions = arrayAssertions;
@@ -323,9 +324,13 @@ var objectAssertions = {
 	 * @param message the optionnal message displayed in case of failure.
 	 */
 	equals: function(expected, message) {
-		assertThat(this.object).isNotNull(message);
-		for (var property in expected) {
-			assertThat(this.object[property]).equals(expected[property], message);
+		if (expected == null) {
+			assertThat(this.object).isNull(message);
+		} else {
+			assertThat(this.object).isNotNull(message);
+			for (var property in expected) {
+				assertThat(this.object[property]).equals(expected[property], message);
+			}
 		}
 		return this;
 	},
@@ -389,5 +394,21 @@ var arrayAssertions = {
 			}
 		}
 		assertThat(found).isTrue(message);
+		return this;
+	}
+};
+
+/**
+ * Assertions available for undefined object.
+ */
+var undefinedAssertions = {
+	/**
+	 * Check the value of the two objects (undefined).
+	 * @param expected the expected value.
+	 * @param message the optionnal message displayed in case of failure.
+	 */
+	equals: function(expected, message) {
+		assertThat(this.object == expected).isTrue(message);
+		return this;
 	}
 };

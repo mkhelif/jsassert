@@ -20,8 +20,14 @@ JSAssert.addTestSuite("Object Assertions", (function() {
 		testEquals: function() {
 			assertThat(object1).equals(object1);
 			assertThat(object2).equals(object2);
+			assertThat(null).equals(null);
 			try {
 				assertThat(object1).equals(object2, message);
+			} catch (error) {
+				assertThat(error).property('message').equals(message);
+			}
+			try {
+				assertThat(null).equals(object1, message);
 			} catch (error) {
 				assertThat(error).property('message').equals(message);
 			}
